@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active {
+            color: aquamarine;
+            font: caption;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- 使用一个类的模板进行渲染   -->
+    <!-- h2标签中的内容使用active这一个类的模板进行全部渲染   -->
+    <h2 class="active">{{message}}</h2>
+    <!--  直接使用style样式进行渲染  -->
+    <!--   如果要其他的样式，要手动分别增加。 -->
+    <h2 style="color: red;font-size: x-small">{{message}}</h2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+    //在javaScript中，class的意思是“类”，class关键字用于定义一个类的模板
+    //类可以理解为是一个具有相同属性和行为的群体集合，语法为“class{设置变量和方法}。”
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好陌生人',
+        },
+    })
+</script>
+</body>
+</html>

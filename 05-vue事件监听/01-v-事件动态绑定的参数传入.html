@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <button @click="button1">按钮1</button>
+  <button @click="button2()">按钮2</button>
+  <button @click="button3()">按钮3</button>
+  <button @click="button3">按钮4</button>
+  <button>按钮5</button>
+  <button>按钮6</button>
+  <button>按钮7</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el: '#app',
+    data: {
+     message:'你好陌生人',
+    },
+    methods: {
+      button1(){
+        console.log('点击了按钮1,无参时()可以省略');
+      },
+      button2(){
+        console.log('点击了按钮1,无参时()可以省略,也可以加上');
+      },
+      button3(name){
+        console.log('有参数时，如果使用button3()不省略()，传入参数是undefined类型');
+        console.log(name);
+      },
+      button4(name){
+        console.log('有参数时，如果使用button3省略()，传入参数是event对象');
+        console.log(name);
+      },
+
+    },
+  })
+</script>
+</body>
+</html>
