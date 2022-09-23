@@ -1,0 +1,18 @@
+属性:修饰标签内容的关键字,写在标签的<>里
+比如按钮 的大小,颜色，需要标签的style属性进行修饰.或class一类style标签中相同属性的模板
+style 在标签内做为标签属性 也可以单独做为一个标签style样式标签(需要在标签内容中定义class对象，以.class的形式定义 例如:)
+    <style>
+        .active {
+            color: aqua;
+            font: caption;
+        }
+        .aaa {
+            color: brown;
+            font: caption;
+        }
+    </style>
+<button class="aaa">按钮</button>
+
+属性绑定:将标签中的属性与Vue中的data{} 的对象进行绑定。
+目前认知，目前有class与style支持key-value对象属性绑定。
+除对象属性绑定外，还支持有数组属性绑定。
