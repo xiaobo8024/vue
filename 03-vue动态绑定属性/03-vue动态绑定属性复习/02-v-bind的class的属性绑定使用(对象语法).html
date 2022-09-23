@@ -25,6 +25,7 @@
     <h2 :class="style">{{message}}</h2>
     <button @click="toClick">点击我可以更换style对象的值对class模板进行更换</button>
 
+<!-- key-value时候 只动态绑定value值 否则对象动态绑定  -->
 <!--  使用key-value形式绑定class对象 key是class对象，value是与Vue动态绑定的Boolean类型对象 -->
     <h2 :class="{myStyle:isActive}">{{message}}</h2>
     <button @click="clicks">点击我启用或关闭class对象</button>
