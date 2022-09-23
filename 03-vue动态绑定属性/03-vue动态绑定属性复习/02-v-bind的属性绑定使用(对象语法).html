@@ -7,6 +7,7 @@
 <body>
 <div id='app'>
    <a :href="urls">{{message}}</a>
+    <button @click="toClick">aaa</button>
 </div>
 </body>
 <script src="../../js/vue.js"></script>
@@ -15,10 +16,14 @@
         el: '#app',
         data: {
             message: '百度一下',
-            urls: 'https://www.baidu.com'
+            urls: 'https://www.baidu.com',
+            isActive: false,
         },
         methods: {
-
+            toClick(){
+                console.log('点击了按钮')
+                this.isActive=true;
+            }
         },
     })
 </script>
