@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id='app'>
+    <select v-model="books">
+        <option  v-for="item in books">{{item.name}}</option>
+    </select>
+</div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {id: 1, name: "百年孤独", price: 100},
+                {id: 2, name: "去看你", price: 50},
+                {id: 3, name: "白夜行", price: 80},
+                {id: 4, name: "简爱", price: 90},
+                {id: 5, name: "格林童话", price: 70},
+            ],
+        },
+        methods: {},
+    })
+</script>
+</html>
