@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id='app'>
+<!-- input标签提交必填type 表单控件， name 提交值   -->
+<!--  value属性标签内容  -->
+<!--  action提交的路由  -->
+    <form action="./01.html" method="get">
+        First name:
+        <input type="text" name="fname"  value="123"/><br/>
+        Last name:
+        <input type="text" name="lname"  value="123"/><br/>
+        <input type="submit" value="Submit" />
+    </form>
+    <input type="button">
+</div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊陌生人',
+        },
+        methods: {},
+    })
+</script>
+</html>
