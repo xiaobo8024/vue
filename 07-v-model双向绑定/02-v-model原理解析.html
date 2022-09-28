@@ -6,17 +6,66 @@
 </head>
 <body>
 <div id='app'>
-<!--
-    v-model的原理其实是背后有两个操作:<br/>
-    1、v-bind绑定value属性的值；<br/>
-    2、v-on绑定input事件监听到函数中，函数会获取最新的值赋值到绑定的属性中
-    -->
+    <!--
+        v-model的原理其实是背后有两个操作:<br/>
+        1、v-bind绑定value属性的值；<br/>
+        2、v-on绑定input事件监听到函数中，函数会获取最新的值赋值到绑定的属性中
+        -->
+    <p> v-model的原理其实是背后有两个操作:<br/>
+        1、v-bind绑定value属性的值；<br/>
+        2、v-on绑定input事件监听到函数中，函数会获取最新的值赋值到绑定的属性中<br/><br/>
 
+        v-model是双向绑定，但是是单向数据流。<br/>
+        单项数据流: 父组件可以向值传递数据，并且改变值组件的值，而子组件不能改变父组件传递给它的<br/>
+        prop属性，官方推荐的做法是它抛出事件，通告父组件自行改变绑定的值。<br/>
+        总结:数据向下，事件向上。
 
-<!--  v-model  -->
+        v-model完全符合单项数据流，它给出了一种在命名和事件定义上的规范，众所周知.sync修饰符是单向数据流的另一个典型范式。
+
+    </p>
+    <!--  v-model是双向绑定，但是是单向数据流。
+
+          单项数据流: 父组件可以向值传递数据，并且改变值组件的值，而子组件不能改变父组件传递给它的
+          prop属性，官方推荐的做法是它抛出事件，通告父组件自行改变绑定的值。
+          总结:数据向下，事件向上。
+
+          v-model完全符合单项数据流，它给出了一种在命名和事件定义上的规范，众所周知.sync修饰符是单向数据流的另一个典型范式。
+
+      -->
+
+    <p>v-model 简单使用: < input v-model="searchText"><br/>
+    </p>
+    <!--  简单使用  -->
+    <!--  v-model  -->
     <input v-model="searchText"><br/>
-<!--  等价于  -->
+    <!--  等价于 <input :value="searchText" @input="searchText=$event.target.value"> -->
+    <p>等价于 < input :value="searchText" @input="searchText=$event.target.value"></p>
     <input :value="searchText" @input="searchText=$event.target.value">
+
+    <br/>
+    <br/>
+    <!--  v-model如何绑定表单类型  -->
+    <!--  v-model绑定textarea  -->
+    <p>model如何绑定表单类型</p>
+    <p>model如何绑定表单类型</p>
+    <div style="background-color: red;width: 300px">
+        <p>输入文本域的值:</p>
+        <textarea v-model="article" cols="30" rows="10"></textarea>
+        <h2>article当前的值是: {{article}}</h2>
+    </div>
+
+    <p>  v-model绑定checkbox: 单个勾选框和多个勾选框。</p>
+    <p>  单个勾选框: v-model即为布尔值。此时input的value并不影响v-model的值。</p>
+    <p>  多个勾选框: 当是多个复选框时，因为可以选中多个，所以对应的data中的属性是一个数组，当选中某一个时，就会将input的value添加到数组中。</p>
+
+    <div style="background-color: aqua;width: 300px">
+        <p>  单选框示例:</p>
+        <label for="agreement">
+            <input id="agreement" type="checkbox" v-model="isAgree">同意协议
+        </label>
+        <h2>isAgree当前的值是: {{isAgree}}</h2>
+        <br/>
+    </div>
 </div>
 </body>
 <script src="../../js/vue.js"></script>
@@ -26,6 +75,8 @@
         data: {
             message: '你好啊陌生人',
             searchText: '',
+            article: '',
+            isAgree: '',
         },
         methods: {},
     })
