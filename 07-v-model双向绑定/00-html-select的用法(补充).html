@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id='app'>
-    <select>
+    <select v-model="books">
         <option  v-for="item in books">{{item.name}}</option>
     </select>
 </div>

@@ -74,18 +74,31 @@
         </div>
     </div>
 <br/>
-<div style="width: 600px;height: 400px;border: 1px solid blue">
+<div style="width: 600px;height: auto;border: 1px solid blue">
     <p>  v-model绑定checkbox: 单个勾选框和多个勾选框。</p>
     <p>  单个勾选框: v-model即为布尔值。此时input的value并不影响v-model的值。</p>
     <p>  多个勾选框: 当是多个复选框时，因为可以选中多个，所以对应的data中的属性是一个数组，当选中某一个时，就会将input的value添加到数组中。</p>
 
     <div style="background-color: aqua;width: 300px">
-        <p>  单选框示例:</p>
+        <p>单选框示例:</p>
         <label for="agreement">
             <input id="agreement" type="checkbox" v-model="isAgree">同意协议
         </label>
         <h2>isAgree当前的值是: {{isAgree}}</h2>
-        <br/>
+    </div>
+    <br/>
+    <div>
+        <p>多选框示例:</p>
+        <label for="basketball">
+            <input id="basketball" type="checkbox" value="basketball" v-model="hobbies">篮球
+        </label>
+        <label for="football">
+            <input id="football" type="checkbox" value="football" v-model="hobbies">足球
+        </label>
+        <label for="tennis">
+            <input id="tennis" type="checkbox" value="tennis" v-model="hobbies">网球
+        </label>
+        <h2>hobbies当前的值是: {{hobbies}}</h2>
     </div>
 </div>
 </div>
@@ -100,6 +113,7 @@
             searchText: '',
             article: '',
             isAgree: '',
+            hobbies: [],
         },
         methods: {},
     })
