@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id='app'>
+
+    <div>
+        <p>不使用label标签的for属性进行对子标签input进行绑定<br/>
+            点击标签内不容可以选择到输入框中
+        </p>
+        输入密码: <input type="text">
+    </div>
+
+
+    <div>
+        <p>使用label标签的for属性进行对子标签input进行绑定<br/>
+            点击label标签内容也可以选择到输入框中
+        </p>
+        <label for="password">
+            输入密码:
+            <input id="password" type="text">
+        </label>
+    </div>
+
+</div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊陌生人',
+        },
+        methods: {},
+    })
+</script>
+</html>
