@@ -9,14 +9,18 @@
 <!--  v-model="book" 等价于: :value="book" @input="book=$event.target.value" -->
 <!--  v-model遵循数据向下，事件向上的规则 当下拉单选中的值发生改变时book=$event.target.value的值，触发事件时选择的值 -->
 <!--    <select v-model="book">-->
-    <select :value="book" @input="book=$event.target.value">
+    <select :value="book" @input="book=$event.target.value" id="book">
         <option  v-for="item in books" :value="item.name">{{item.name}}</option>
     </select>
     <p>获取到的书: {{book}}</p>
+    <br/>
+    <p>拿到当前选中的price的值:{{price}}</p>
+
 </div>
 </body>
 <script src="../../js/vue.js"></script>
 <script>
+
     const app = new Vue({
         el: '#app',
         data: {
@@ -31,6 +35,12 @@
         },
         methods: {
         },
+        computed: {
+            price(){
+               let bookName=this.book;
+
+            }
+        }
     })
 </script>
 </html>
