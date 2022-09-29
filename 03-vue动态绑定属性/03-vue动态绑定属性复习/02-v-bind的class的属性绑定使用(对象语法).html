@@ -33,6 +33,11 @@
 <!-- 动态抽取class对象，对class对象进行简化   -->
 <!-- 使用v-bind后,必与Vue中的参数绑定  -->
     <h2 :class="myStyle">{{message}}</h2>
+
+<!--  使用多个对象绑定时,{}中如果只填key,则为class对象，非绑定Vue对象，value默认为true.
+     例如:
+ -->
+    <h2 :class="{myStyle}">{{message}}</h2>
 </div>
 </body>
 <script src="../../js/vue.js"></script>
