@@ -25,6 +25,33 @@ function addScript(url){
 
 利用document.createElement(”script”)生成了一个script的标签，设置其 type属性为text/javascript。
 
+## 方法二：在jS中创建匿名类引用另一个JS
+
+在convertPinyin.js文件中写函数（例如myImport），引用pingyin.js。
+
+```
+ var myImport = function(){
+     var script = document.createElement("script");
+     script.setAttribute("type", "text/javascript");
+     script.setAttribute("src","libs/js/pingyin.js");        // 引用文件的路径
+     document.getElementsByTagName('head')[0].appendChild(script);                    // 引用文件
+ }
+```
+
+然后，为convertPinyin.js 添加初始化加载方法，并引用myImport()。
+
+```
+ window.onload = function(){
+     myImport();
+ }
+```
+
+注：onload方法在页面加载后完成。所以，页面页面加载过程中并没有形成引用关系。还是有局限性的。
+
+这里引用文件的路径不想相对于被引用的，而是相对于页面的。
+
+------
+
 ## 方法三，利用es6中export和import实现模块化
 
 一个js文件代表一个js模块 。ES6引入外部模块分两种情况：
