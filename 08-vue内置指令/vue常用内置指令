@@ -1,0 +1,10 @@
+v-model: v-model主要实现数据双向绑定，通常用在表单元素上，例如:input、textarea、select等
+v-on:
+v-bind:
+v-text:
+v-pre:
+v-html:
+v-for
+v-loack:
+v-if:
+v-show:
