@@ -37,8 +37,20 @@
         },
         computed: {
             price(){
-               let bookName=this.book;
-
+               let book=this.book;
+                for (let item of this.books) {
+                    //获取对象所有key的方法，需要使用Object.keys(obj)方法,Object.keys(obj)方返回一个数组，这个数组包含obj对象中的所有key。
+                    //其中obj就是你写的对象.
+                   // console.log(Object.keys(item));
+                    //获取对象所有value的方法，需要使用Object.value(obj)方法,Object.value(obj)方返回一个数组，
+                    // 这个数组包含obj对象中的所有value。
+                    let obj=Object.values(item)
+                    console.log(Object.values(item));
+                   if(obj.includes(book)){
+                       console.log(item.price);
+                       return item.price;
+                   }
+                }
             }
         }
     })
