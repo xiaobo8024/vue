@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+
+<script>
+const arr=[
+    1,
+    'abc',
+    false,
+    null,
+    1,
+    NaN,
+    ['q','w','e'],
+    {id:1,name:'十万个为什么',price:100},
+    () => Date.now(),
+    undefined,
+    new Date('2022/09/30'),
+    new RegExp('abc','ig'),
+    Symbol('sym'),
+    7,
+    6
+];
+
+
+//indexOf的使用，indexOf的参数是数组的值，只能传入基本类型，从起始位0开始索引，
+// 如果数组中不存在传入参数的值，返回-1，存在返回索引值。
+let number = arr.indexOf(1); //索引值为1
+if(number>=0){
+    console.log(number)
+}
+number=arr.indexOf(5);
+if(number===-1){
+    console.log('不存在的参数值返回值为 -1')
+}
+
+//indexOf不论多参还是少参都是从前往后查询
+//indexOf 的第二个参数fromIndex,从哪里开始索引，如果formIndex的值大于索引最大值返回 -1，如果为负数 则从
+//(arr.length-Math.abs(-2))开始索引.
+number=arr.indexOf(6,14);
+//从索引值为13开始索引包含13
+console.log('数组的长度: '+arr.length)
+console.log('数组长度15,为打印number=arr.indexOf(6,14)的值: '+number)
+//如果formIndex为负数，则从arr.length-Math.abs(-2) 索引值包含此值往后面查询
+number=arr.indexOf(6,-1);
+console.log('数组长度15,为打印number=arr.indexOf(6,-1)的值: '+number)
+
+//lastIndexOf的使用，lastIndexOf的参数是数组的值，只能传入基本类型，
+// 从索引值的最大值处往前查询，如果数组中不存在传入参数的值，返回-1，存在返回索引值。
+
+</script>
+</html>
