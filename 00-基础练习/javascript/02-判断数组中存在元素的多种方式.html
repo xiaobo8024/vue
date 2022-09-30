@@ -27,30 +27,58 @@ const arr=[
 ];
 
 
-//indexOf的使用，indexOf的参数是数组的值，只能传入基本类型，从起始位0开始索引，
+//indexOf的使用，indexOf分为单参数和多参数，不论那种参数类型，indexOf都是顺序遍历数组
+// 单参数的indexOf的参数值是数组中的元素，只能传入基本类型，从起始位0开始索引，
 // 如果数组中不存在传入参数的值，返回-1，存在返回索引值。
 let number = arr.indexOf(1); //索引值为1
-if(number>=0){
-    console.log(number)
-}
+console.log('数组长度15,number=arr.indexOf(1);返回的索引值是: '+number);
 number=arr.indexOf(5);
-if(number===-1){
-    console.log('不存在的参数值返回值为 -1')
+console.log('数组长度15,number=arr.indexOf(5);返回的索引值是: '+number);
+//indexOf 的第二个参数fromIndex（起始索引值），
+//证明indexOf是顺序遍历arr数组
+number=arr.indexOf(6,14);
+//formIndex=14,从索引值=14的位置顺序遍历，包含14，已知arr数组中，元素6的索引是14
+console.log('数组的长度: '+arr.length);
+console.log('数组长度15,number=arr.indexOf(6,14);返回的索引值是: '+number);
+//formIndex=14,从索引值=14的位置顺序遍历，包含14，已知arr数组中，元素7的索引是13
+number=arr.indexOf(7,14)
+console.log('数组长度15,number=arr.indexOf(7,14);返回的索引值是: '+number);
+//如果formIndex<0,索引起始位置=arr.length-Math.abs(formIndex)
+//formIndex的作用域在[-∞,arr.length)之间,及当formIndex<-arr.length时，
+// 从0索引值处开始顺序遍历arr数组
+number=arr.indexOf(7,-15);
+console.log('数组长度15,number=arr.indexOf(7,-15);返回的索引值是: '+number)
+number=arr.indexOf(7,-100);
+console.log('数组长度15,number=arr.indexOf(7,-100);返回的索引值是: '+number)
+number=arr.indexOf(7,15);
+console.log('数组长度15,number=arr.indexOf(7,15);返回的索引值是: '+number)
+
+
+
+//lastIndexOf的使用，lastIndexOf的参数是数组的值，只能传入基本类型，lastIndexOf是从后往前查询
+// 从索引值的最大值处往前查询，如果数组中不存在传入参数的值，返回-1，存在返回索引值。
+number=arr.lastIndexOf(7);
+if(number>=0){
+    console.log('number=arr.lastIndexOf(7);数组中存在7这个元素，返回值为索引值: '+number);
+}else {
+    console.log('number=arr.lastIndexOf(7);数组中不存在7这个元素，返回值为: -1');
 }
 
-//indexOf不论多参还是少参都是从前往后查询
-//indexOf 的第二个参数fromIndex,从哪里开始索引，如果formIndex的值大于索引最大值返回 -1，如果为负数 则从
-//(arr.length-Math.abs(-2))开始索引.
-number=arr.indexOf(6,14);
-//从索引值为13开始索引包含13
-console.log('数组的长度: '+arr.length)
-console.log('数组长度15,为打印number=arr.indexOf(6,14)的值: '+number)
-//如果formIndex为负数，则从arr.length-Math.abs(-2) 索引值包含此值往后面查询
-number=arr.indexOf(6,-1);
-console.log('数组长度15,为打印number=arr.indexOf(6,-1)的值: '+number)
-
-//lastIndexOf的使用，lastIndexOf的参数是数组的值，只能传入基本类型，
-// 从索引值的最大值处往前查询，如果数组中不存在传入参数的值，返回-1，存在返回索引值。
+//lastIndexOf的多参形式，第二个参数为formIndex(起始索引值)
+//证明lastIndexOf是从逆顺序遍历数组，返回第一个遇到的元素的索引值
+number=arr.lastIndexOf(1,14);
+console.log('数组长度是:15, number=arr.lastIndexOf(1,14); 返回的索引值是:'+number);
+// 如果formIndex>=arr.length,返回值不为-1,从最大索引值处开始逆顺序遍历数组
+number=arr.lastIndexOf(6,18);
+console.log('数组长度是:15, number=arr.lastIndexOf(6,18); 返回的索引值是:'+number);
+//如果formIndex为负数，则从arr.length-Math.abs(formIndex)索引值处开始逆顺序遍历数组
+number=arr.lastIndexOf(1,-5)
+let num=arr.length-Math.abs(-5);
+console.log('从 arr.length-Math.abs(-5)=  '+num+'  开始逆顺序遍历arr数组');
+console.log('数组长度是:15, number=arr.lastIndexOf(1,-5); 返回的索引值是:'+number);
+//如果 |Math.abs(-5)|>arr.length ,返回值为-1 及formIndex的值的作用域在[-arr.length,+∞)之间。
+number=arr.lastIndexOf(1,-16);
+console.log('数组长度是:15, number=arr.lastIndexOf(1,-20); 返回的索引值是:'+number)
 
 </script>
 </html>
