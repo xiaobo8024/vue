@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            color: #5e38cc;
+        }
+
+        .title {
+            color: red;
+        }
+
+        .active {
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div id='app'>
+    <a v-bind:href="url">aaa</a>
+    <br>
+    <span :class="myActive">你好啊，陌生人</span>
+    <button @click="getClick1">点击我变颜色</button>
+</div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊陌生人',
+            url: 'https://www.baidu.com',
+            myActive: 'active',
+            arrStyle: ['active','box','title']
+        },
+
+        methods: {
+            getClick1(){
+               this.myActive=this.arrStyle[Math.floor(Math.random() * 3)]
+            }
+        },
+    })
+</script>
+</html>
