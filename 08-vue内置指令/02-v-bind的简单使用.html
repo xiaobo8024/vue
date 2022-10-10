@@ -21,8 +21,17 @@
 <div id='app'>
     <a v-bind:href="url">aaa</a>
     <br>
+    <!--  class对象绑定  -->
     <span :class="myActive">你好啊，陌生人</span>
     <button @click="getClick1">点击我变颜色</button>
+<br>
+<!--  class key-value 绑定属性值 -->
+    <span :class="{active: isActive}">你好啊，陌生人</span>
+    <button @click="getClick2">点击我变颜色</button>
+    <br>
+<!--  style key-value 数组绑定  -->
+    <span :class="[myActive]">你好啊，陌生人</span>
+    <button @click="getClick3">点击我变颜色</button>
 </div>
 </body>
 <script src="../../js/vue.js"></script>
@@ -33,12 +42,19 @@
             message: '你好啊陌生人',
             url: 'https://www.baidu.com',
             myActive: 'active',
-            arrStyle: ['active','box','title']
+            arrStyle: ['active','box','title'],
+            isActive: false,
         },
 
         methods: {
             getClick1(){
                this.myActive=this.arrStyle[Math.floor(Math.random() * 3)]
+            },
+            getClick2(){
+               this.isActive=!this.isActive;
+            },
+            getClick3(){
+                this.myActive=this.arrStyle[Math.floor(Math.random() * 3)]
             }
         },
     })
