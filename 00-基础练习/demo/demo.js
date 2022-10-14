@@ -50,8 +50,8 @@ $(function () {
     $("#conditionItem").mouseleave(function (){
         $("#conditionItem").hide();
     });
-    //点击选中的下拉框的值，放入到输入框中
 
+    //点击选中的下拉框的值，放入到输入框中
     for (let i = 0; i < conditionItem.length; i++) {
         $("#"+conditionItem[i]).click(function () {
             //对下拉框的值进行追加
