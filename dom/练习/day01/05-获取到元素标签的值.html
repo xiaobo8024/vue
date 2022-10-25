@@ -18,10 +18,17 @@
     // var elementById = document.getElementById("app");
     // console.log(elementById);
     // console.log(elementsByName);
-    var elementsByTagName = document.getElementsByTagName("p");
+    var pTags = document.getElementsByTagName("p");
     // console.log(elementsByTagName)
-    for (let i = 0; i < elementsByTagName.length; i++) {
-        // console.log(elementsByTagName[i].innerHTML)
+    for (let i = 0; i < pTags.length; i++) {
+
+        // pTags[i].onclick=function () {
+        //     console.log(pTags[i].innerText);
+        // }
+     
+        pTags[i].addEventListener('click',function () {
+            console.log(pTags[i].innerText);
+        })
     }
 
    var div= document.getElementsByTagName("div");
@@ -36,5 +43,6 @@
     console.log(div2);
 
     console.log(divValue);
+
 </script>
 </html>
