@@ -16,7 +16,7 @@
     <!--  v-model是一个类似语法糖，但是不是语法糖要去看源码  -->
     <input type="text" v-model="message">
 
-<!-- v-model 等于v-on 和v-bind 遵循数据向下，事件向上  -->
+    <!-- v-model 等于v-on 和v-bind 遵循数据向下，事件向上  -->
 
 </div>
 <div id="app1">
@@ -44,7 +44,8 @@
 
 </div>
 </body>
-<script src="../../js/vue.js"></script>
+<script src="../data/vue.js"></script>
+<script src="../data/jQuery3.6.1.js"></script>
 <script>
     //前端控制台打印app.message='你好啊，陌生人，输入框里的内容跟着改变'
     const app = new Vue({
@@ -54,25 +55,33 @@
         },
         methods: {},
     });
- const app1=new Vue({
-     el: '#app1',
-     data: {
-         books: [
-             {id:1,bookName:'海底两万里',price:100},
-             {id:2,bookName:'十万个为什么',price:110},
-             {id:3,bookName:'百科全书',price:10},
-             {id:4,bookName:'大话西游',price:20},
-         ],
-         book1s: [
-             {id:1,bookName:'海底两万里',price:100},
-             {id:2,bookName:'十万个为什么',price:110},
-             {id:3,bookName:'百科全书',price:10},
-             {id:4,bookName:'大话西游',price:20},
-         ],
-         bookName: '',
-         bookName1: '',
-     },
+    const app1=new Vue({
+        el: '#app1',
+        data: {
+            books: [
+                {id:1,bookName:'海底两万里',price:100},
+                {id:2,bookName:'十万个为什么',price:110},
+                {id:3,bookName:'百科全书',price:10},
+                {id:4,bookName:'大话西游',price:20},
+            ],
+            book1s: [
+                {id:1,bookName:'海底两万里',price:100},
+                {id:2,bookName:'十万个为什么',price:110},
+                {id:3,bookName:'百科全书',price:10},
+                {id:4,bookName:'大话西游',price:20},
+            ],
+            bookName: '',
+            bookName1: '',
+        },
 
- });
+    });
+</script>
+
+
+<script>
+    $(function () {
+       var first = $("div").find("br").first();
+        console.log(first)
+    })
 </script>
 </html>
