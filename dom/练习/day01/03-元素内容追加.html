@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <script src="../data/jQuery3.6.1.js"></script>
+    <script>
+
+        //  append() 和prepend是标签内追加或开头插入
+        //after 和 before 是标签外追加或者开头插入
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("img").before("<b>之前</b>");
+            });
+
+            $("#btn2").click(function(){
+                $("img").after("<i>之后</i>");
+            });
+
+            $("#but3").click(function () {
+                $("img").append("<i>结尾追加</i>")
+            });
+
+            $("#but4").click(function () {
+                $("img").prepend("<b>开头插入</b>")
+            })
+        });
+    </script>
+</head>
+
+<body>
+<img src="./images/img.png" >
+<br><br>
+<button id="but3">append 结尾追加</button>
+<button id="but4">prepend 开头插入</button>
+<button id="btn1">before之前插入</button>
+<button id="btn2">after之后插入</button>
+</body>
+</html>

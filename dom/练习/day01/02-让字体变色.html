@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id='app'>
+<span style="color: #99CC00">你好啊世界</span>
+    <button>点击按钮就变色</button>
+</div>
+</body>
+<script src="../data/jQuery3.6.1.js"></script>
+<script>
+$(function () {
+    var text = $("#app").find("span").text();
+    console.log(text)
+    $("#app").find("button").click(function () {
+        $("#app").find("span").attr("style","color: #bb1b85");
+    })
+})
+</script>
+</html>
