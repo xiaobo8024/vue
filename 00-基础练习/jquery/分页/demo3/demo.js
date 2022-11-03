@@ -22,6 +22,11 @@ $.pager = undefined;
 
 function goPage(btn){
     var obj={other:{},value:[11,22,33,44,55,66,77,88,99,0,11,22,33,44,55,66,77,88,99,0,11,22,33,44,55,66,77,88,99,0,11,22,33,44,55,66,77,88,99,0]};
-    $.pager.data=obj.value;
+    let data=obj.value;
 
+   // let str= $("#aaacc").val();
+   // let split = str.split(";");
+   data.filter( function(item) {
+       return item >= 5
+   });
 }

@@ -10,5 +10,5 @@ $(function () {
     //
     // input.val("1111")
   let a= $("button").text("aaa");
-  console.log(typeof a)
+  console.log(typeof a);
 })
