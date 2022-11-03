@@ -32,9 +32,30 @@ function pager(obj) {
     pager.dataMaxCount = data.length;
     //设置总页数
     pager.pageMaxCount = (pager.dataMaxCount % pager.pageSize) === 0 ? pager.dataMaxCount / pager.pageSize : Math.trunc(pager.dataMaxCount / pager.pageSize) + 1;
+   // showFirstPage(pager.pageSize,data);
     pager=createNumBtn(pager);
+
     return pager;
 }
+
+// //首页展示
+// function showFirstPage(size,data) {
+//     for (let i = 0; i < size ; i++) {
+//        let row = data[i];
+//
+//        console.log(row);
+//     }
+// }
+//
+// //跳转页展示
+//
+// //创建表单
+// function createTable() {
+//     //表单字符串
+//     let strTable='';
+//
+// }
+
 
 //填充pager的属性
 function setPager(pager) {
@@ -44,6 +65,7 @@ function setPager(pager) {
     pager.lastIndex = pager.currentPage * pager.pageSize <= pager.dataMaxCount ? pager.pageSize * pager.currentPage - 1 : pager.dataMaxCount - 1;
     return pager;
 }
+
 
 // 创建数字按钮
 function createNumBtn(pager) {
@@ -77,7 +99,7 @@ function createNumBtn(pager) {
 
     }
 
-    str += '<button id="go-btn-nick" data-page="go-btn-nick">跳转</button>' + '<input id="page-ipt-nick" type="text" name="page-ipt-nick" style="width: 20px">页';
+    str += '<button id="go-btn-nick" data-page="go-btn-nick">跳转</button>' + '<input id="page-ipt-nick" type="text" name="page-ipt-nick">页';
     str += '<span>，  共'+pager.pageMaxCount+'页</span>'
     $('.' + pager.btnBoxCon).html(str);
 
@@ -105,7 +127,15 @@ function goPage(btn, pager) {
     //设置当前页码
     if (!isNaN(btn)) {//数字按钮
         $("button[data-page = " + pager.currentPage + "]").removeClass(pager.currentBtn);
-        pager.currentPage = parseInt(btn);
+        buts.each(function (i, v) {
+            let index=i-1;
+            let bt = v.getAttribute('data-page');
+            if (!isNaN(bt)) {
+                if(btn === index.toString()){
+                    pager.currentPage = parseInt(bt);
+                }
+            }
+        });
         $("button[data-page = " + pager.currentPage + "]").addClass(pager.currentBtn);
         pager = setPager(pager);
     } else {

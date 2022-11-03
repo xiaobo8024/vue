@@ -1,0 +1,2 @@
+demo.css
+txb_page_component.js 107 ~ 117  80行去掉 width :20 px
